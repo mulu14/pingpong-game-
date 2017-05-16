@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.time.Year;
-
+ 
 
 public class Computer {
 	Pong pong; 
@@ -11,7 +11,8 @@ public class Computer {
 	private int width = 10;  
 	private int height = 40;
 	private int x = 55; 
-
+	private int computerScore;
+   
 	
 	public Computer(GamePanel game){
 		this.field = game; 
@@ -55,6 +56,8 @@ public class Computer {
    public int getHeight(){
 	   return this.height; 
    }
-
+   public int returnComputerScore(){
+	   return computerScore;
+   }
 
 }

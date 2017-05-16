@@ -9,12 +9,13 @@ public class Player {
 	private int width = 10;  
 	private int height = 40;
 	private int x = 35; 
+	private int score;
 	
 	
 	
-	public Player(){
+	public Player(){  
 		
-	}
+	} 
 	
 	public void updatePlayer(){
 		
@@ -61,6 +62,10 @@ public class Player {
    
    public void setHight(int height){
 	   this.height = height; 
+   }
+   
+   public int returnscore(){
+	   return this.score;
    }
 
    }

@@ -2,18 +2,21 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import javax.swing.JOptionPane;
 
+    
 public class Ball {
 	Pong pong; 
+	
 	private Color color; 
 	private int x = pong.Window_width/2; 
 	private int y  = pong.Window_height/2;
 	public int size = 5; 
-	private int playerScore ; 
-	private int Computerscore; 
 	private int xVelocity = 2; 
 	private int yVelocity = 2;
-	Sound sound; 
+	private int playerScore ;
+	private int computerScore ;
+	Sound sound = new Sound(); 
 	
 	public void update() {
 		
@@ -22,9 +25,13 @@ public class Ball {
 		
 		if(x + size < 0){
 			xVelocity +=  2; 
+			this.computerScore ++;
+			
 		}
 		else if(x + size > pong.Window_width){
 			xVelocity -= 2; 
+			this.playerScore ++;
+		
 		}
 		
 		if(y + size < 0){
@@ -32,11 +39,23 @@ public class Ball {
 		}
 		else if(y + size> pong.Window_height){
 			yVelocity -= 2; 
+			
+			if (this.returnPlayerScore() == 10){
+				 JOptionPane.showMessageDialog(null, "Player 1 wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+				 this.computerScore = 0; 
+				 this.playerScore = 0;
+			}
+	           
+	        else if (this.returnComputerScore() == 10){
+	            JOptionPane.showMessageDialog(null, "Computer wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+	            this.computerScore = 0; 
+				this.playerScore = 0;
+	        }
 		}
 	} 
 	
 	public void paint(Graphics g){
-		g.setColor(color);
+		g.setColor(Color.WHITE);
 		g.fillOval(x, y, size, size);
 		g.dispose();
 	}
@@ -45,8 +64,12 @@ public class Ball {
 		return x;
 	}
 	
-	public void setBallColor(Color c){
-		this.color = c; 
+	public int returnPlayerScore(){
+		return this.playerScore;
+	}
+	
+	public int returnComputerScore(){
+		return this.computerScore;
 	}
 	
 	public int getBollYvalue(){
@@ -72,34 +95,10 @@ public class Ball {
 		
 		}
 		
-		if(this.x < player.getX() && (this.x + this.size < 0) ){
-			 
-			 System.out.println(this.Computerscore++);
-			}
-		
 			
 	}
 	
-	public int playerScore(Computer cpu){
-		playerScore  = 0;
-		
-		while(this.x > cpu.getX() && (this.x + this.size > pong.Window_width) ){
-			playerScore = playerScore +1;
-			System.out.println(this.playerScore++);
-			}
-		return playerScore;
-	}
-	
-	
-	public int ComputerScore(Player player){
-		 Computerscore = 0;
-		while(this.x > player.getX() && (this.x + this.size < 0) ){
-			Computerscore  = Computerscore +1;
-			System.out.println(this.Computerscore++);
-			}
-		return Computerscore; 
-	}
-	
+
 	
 	public void checkCollision(Computer cpu){
 		
@@ -107,17 +106,10 @@ public class Ball {
 			if(this.y >cpu.getY() && this.y < cpu.getY() + cpu.getHeight()){
 		     
 			  reverseDirection(); 
-			  sound.playMusic();
+			 sound.playMusic();
 			  
 			}
 		}
 		
-		if(this.x > cpu.getX() && (this.x + this.size > pong.Window_width) ){
-		     
-			  //System.out.println("Playerone score");
-			
-			//System.out.println(this.playerScore++);
-			}
-			
 	}
 }
