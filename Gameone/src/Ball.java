@@ -15,9 +15,9 @@ public class Ball {
 	private int xVelocity = 2; 
 	private int yVelocity = 2;
 	private int playerScore ;
-	private int computerScore ;
+	private int computerScore ; 
 	Sound sound = new Sound(); 
-	
+	   
 	public void update() {
 		
 		x += xVelocity; 

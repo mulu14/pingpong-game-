@@ -12,7 +12,7 @@ public class Computer {
 	private int height = 40;
 	private int x = 55; 
 	private int computerScore;
-   
+    
 	
 	public Computer(GamePanel game){
 		this.field = game; 
