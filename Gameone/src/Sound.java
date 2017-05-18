@@ -11,7 +11,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Sound {
 	
 	
-	public Sound(){
+	public Sound(){ 
 		
 	}
 	

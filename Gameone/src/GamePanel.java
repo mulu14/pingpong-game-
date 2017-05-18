@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g2.setColor(Color.WHITE);
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
-		      
+		       
 		if(this.gameststus == 0){ 
 			g2.setColor(Color.white);
 			g2.setFont(new Font ("Areal", 1, 20));
@@ -113,18 +113,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if(e.getKeyCode() == KeyEvent.VK_SPACE){
 			
 			if(this.gameststus == 0){
-				//System.out.println("Presed 1");
+				
 				this.gameststus = 2;
 				
 				
 			}
 			else if(this.gameststus == 1){
-				//System.out.println("Presed 1");
+				
 				this.gameststus = 2;
 				
 			}
 			else if(this.gameststus == 2){
-				//System.out.println("Presed 2");
+				
 				this.gameststus = 1;
 				
 			}

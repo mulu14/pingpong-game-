@@ -15,7 +15,7 @@ public class Pong extends JFrame implements ActionListener {
 	
     final static int Window_width = 407; 
 	final static int Window_height  = 283;
-	   
+	     
 	
 	   
 
