@@ -51,6 +51,15 @@ public class Player {
    	public void playerHeight(int height){
    		this.height = height; 
    	}
+   	
+   	public void increasePlayerHight(){
+   		this.height = height + 5; 
+   		
+   	}
+   	
+   	public void decreasePlayerheight(){
+   		this.height = height -5; 
+   	}
    
    public int getWidth(){
 	   return this.width; 

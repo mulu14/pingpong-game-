@@ -24,10 +24,10 @@ public class Computer {
 		
 		
 		if(field.returnBall().getBollYvalue() < this.y){
-			yVelocity = -1; 
+			yVelocity = -2; 
 		}
 		else if(field.returnBall().getBollYvalue()> this.y){
-			yVelocity = +1; 
+			yVelocity = +2; 
 			
 		}
 		y = y + yVelocity;
@@ -39,6 +39,9 @@ public class Computer {
 	
 	}
 	
+	public void increaseComputerSpeed(){
+		this.yVelocity =+1;
+	}
 	
 	
    public int getX(){
