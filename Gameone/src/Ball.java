@@ -8,14 +8,13 @@ import javax.swing.JOptionPane;
 public class Ball {
 	Pong pong; 
 	
-	private Color color; 
 	private int x = pong.Window_width/2; 
 	private int y  = pong.Window_height/2;
 	public int size = 5; 
 	private int xVelocity = 2; 
 	private int yVelocity = 2;
-	private int playerScore ;
-	private int computerScore ; 
+	private int playerScore =0;
+	private int computerScore =0; 
 	Sound sound = new Sound(); 
 	   
 	public void update() {
@@ -24,38 +23,41 @@ public class Ball {
 		y += yVelocity;  
 		
 		if(x + size < 0){
-			 
-			this.computerScore ++;
-			if (this.returnComputerScore() == 10){
-			    JOptionPane.showMessageDialog(null, "Computer wins", "Pong", JOptionPane.PLAIN_MESSAGE);
-			    this.computerScore = 0; 
-			    this.playerScore = 0;
-			}
-			respawnBall();
-			//xVelocity +=  4;
-			yVelocity= -yVelocity;
+
+		    this.computerScore ++;
+		    if (this.returnComputerScore() == 10){
+			JOptionPane.showMessageDialog(null, "Computer wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+			this.computerScore = 0; 
+			this.playerScore = 0;
+		    }
+		    respawnBall();
+		    //xVelocity +=  4;
+		    yVelocity= -yVelocity;
 		}
 		else if(x + size > pong.Window_width){
-			 
-			this.playerScore ++;
-			if (this.returnPlayerScore() == 10){
-			    JOptionPane.showMessageDialog(null, "Player 1 wins", "Pong", JOptionPane.PLAIN_MESSAGE);
-			    this.computerScore = 0; 
-			    this.playerScore = 0;
-			}
-			respawnBall();
-			//xVelocity -= 4;
-			yVelocity = -yVelocity;
+		    
+		    this.playerScore ++;
+		    if (this.returnPlayerScore() == 10){
+			JOptionPane.showMessageDialog(null, "Player 1 wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+			this.computerScore = 0; 
+			this.playerScore = 0;
+		    }
+		    respawnBall();
+		    //xVelocity -= 4;
+		    yVelocity = -yVelocity;
+		    
 		}
 		
 		if(y - size < 0){
-			yVelocity += 4; 
+		    yVelocity += 4; 
 		}
+		
 		else if(y + size > pong.Window_height){
-			yVelocity -= 4; 	
+		    yVelocity -= 4; 	
+		    
 		}
 	} 
-
+    
     public void respawnBall(){
 	this.x = pong.Window_width/2;
 	this.y = pong.Window_height/2;
@@ -72,16 +74,24 @@ public class Ball {
     }
     
     public int returnPlayerScore(){
-	    return this.playerScore;
-	}
+	return this.playerScore;
+    }
     
     public int returnComputerScore(){
-	    return this.computerScore;
-	}
+	return this.computerScore;
+    }
     
     public int getBollYvalue(){
 	return y; 
     }
+    
+    public void setPlayerScore(int x){
+	this.playerScore = x;
+    }
+    public void setComputerScore(int x){
+	this.computerScore = x;
+    }
+    
     
     public int getbollSize(){
 	return this.size; 
