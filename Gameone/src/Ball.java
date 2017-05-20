@@ -52,7 +52,7 @@ public class Ball {
 		    yVelocity += 4; 
 		}
 		
-		else if(y + size > pong.Window_height){
+		else if(y + size >= pong.Window_height){
 		    yVelocity -= 4; 	
 		    
 		}
