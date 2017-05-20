@@ -23,7 +23,7 @@ public class Computer {
 	
 	
 	
-	if(field.returnBall().getBollYvalue() < this.y){
+	if(field.returnBall().getBollYvalue() < this.y + 5){
 	    if (this.y > 0){
 		yVelocity = -2;
 	    }
@@ -31,7 +31,7 @@ public class Computer {
 		yVelocity = 0;
 	    }
 	}
-	else if(field.returnBall().getBollYvalue()> this.y){
+	else if(field.returnBall().getBollYvalue()> this.y + (this.height -5)){
 	    
 	    if (this.y + this.height < pong.Window_height){
 		yVelocity = +2; 
