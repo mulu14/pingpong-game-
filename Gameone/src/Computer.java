@@ -46,13 +46,25 @@ public class Computer {
     public void paint(Graphics g){
 	g.setColor(Color.white);
 	g.fillRect(pong.Window_width - (x- width), y, width, height);
+
 	if (this.yVelocity < 0){
+	    g.setColor(Color.lightGray);
+	    g.fillRect(pong.Window_width - (x-width), y + height, width, 4);
 	    g.setColor(Color.gray);
-	    g.fillRect(pong.Window_width - (x-width), y + height, width, 5);
+	    g.fillRect(pong.Window_width - (x-width), y + height + 4, width, 3);
+	    g.setColor(Color.darkGray);
+	    g.fillRect(pong.Window_width - (x-width), y + height + 7, width, 2);
+
 	}
+	
 	else if (this.yVelocity > 0){
+	    g.setColor(Color.lightGray);
+	    g.fillRect(pong.Window_width - (x-width), y - 4, width, 4);
 	    g.setColor(Color.gray);
-	    g.fillRect(pong.Window_width - (x-width), y - 5, width, 5);
+	    g.fillRect(pong.Window_width - (x-width), y - 7, width, 3);
+	    g.setColor(Color.darkGray);
+	    g.fillRect(pong.Window_width - (x-width), y - 9, width, 2);
+
 	}
     }
     

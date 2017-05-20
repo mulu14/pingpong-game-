@@ -64,8 +64,11 @@ public class Ball {
     }
     
     public void paint(Graphics g){
+	g.setColor(Color.gray);
+	g.fillOval(x - this.xVelocity, y - this.yVelocity, size, size);
 	g.setColor(Color.WHITE);
 	g.fillOval(x, y, size, size);
+	
 	g.dispose();
     }
     
