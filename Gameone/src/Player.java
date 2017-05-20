@@ -34,9 +34,18 @@ public class Player {
 	public void paint(Graphics g){
 		g.setColor(Color.white);
 		g.fillRect(x, y, width, height);
-	
+
+		if (this.yVelocity < 0){
+		    g.setColor(Color.gray);
+		    g.fillRect(x, y + height, width, 5);
+		}
+		else if (this.yVelocity > 0){
+		    g.setColor(Color.gray);
+		    g.fillRect(x, y - 5, width, 5);
+		}
+		
 	}
-	
+    
 	public void setvelocity(int speed){
 		this.yVelocity = speed; 
 	}
