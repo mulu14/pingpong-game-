@@ -24,11 +24,21 @@ public class Computer {
 		
 		
 		if(field.returnBall().getBollYvalue() < this.y){
-			yVelocity = -2; 
+		    if (this.y > 0){
+			yVelocity = -2;
+		    }
+		    else {
+			yVelocity = 0;
+		    }
 		}
 		else if(field.returnBall().getBollYvalue()> this.y){
+		    
+		    if (this.y + this.height < pong.Window_height){
 			yVelocity = +2; 
-			
+		    }
+		    else {
+			yVelocity = 0;
+		    }
 		}
 		y = y + yVelocity;
 	}
