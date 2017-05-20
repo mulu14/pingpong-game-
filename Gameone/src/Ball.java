@@ -108,8 +108,10 @@ public class Ball {
     public void checkCollision(Player player){
 	if(this.x > player.getX() && this.x < player.getX() + player.getWidth()){
 	    if(this.y >player.getY() && this.y < player.getY() + player.getHeight()){
-		
-		reverseDirection(); 
+
+
+		xVelocity = 2;
+		//reverseDirection(); 
 		sound.playMusic();
 	    }
 	    
@@ -124,8 +126,9 @@ public class Ball {
 	
 	if(this.x > cpu.getX() && this.x < cpu.getX() + cpu.getWidth()){
 	    if(this.y >cpu.getY() && this.y < cpu.getY() + cpu.getHeight()){
-		
-		reverseDirection(); 
+
+		xVelocity = -2;
+		//reverseDirection(); 
 		sound.playMusic();
 		
 	    }
