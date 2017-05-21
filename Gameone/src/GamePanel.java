@@ -66,27 +66,27 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if(this.gameststus == 0){ 
 			g2.setColor(Color.white);
 			g2.setFont(new Font ("Areal", 1, 20));
-			g2.drawString("Pong: game instruction", pong.Window_width/2 -100, 30); 
+			g2.drawString("Pong: game instruction", pong.Window_width/2 -150, 30); 
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Press space to play", pong.Window_width/2 -100, 50); 
+			g2.drawString("Press space to play", pong.Window_width/2 -150, 50); 
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("You can pause the game by  pressing space ", pong.Window_width/2 -100, 70); 
+			g2.drawString("You can pause and unpause the game by  pressing space ", pong.Window_width/2 -150, 70); 
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("You can continue  the game by  pressing space ", pong.Window_width/2 -100, 90); 
+			g2.drawString("One play session is 10 points, first to 10 wins ", pong.Window_width/2 -150, 90);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("One play session is 10 points, first to 10 wins ", pong.Window_width/2 -100, 110);
+			g2.drawString("Increase the size of the player by pressing F1 ", pong.Window_width/2 -150, 110);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Increase the size of the player by pressing F1 ", pong.Window_width/2 -100, 130);
+			g2.drawString("Decrease the size of the player by pressing F2 ", pong.Window_width/2 -150, 130);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Decrease the size of the player by pressing F2 ", pong.Window_width/2 -100, 150);
+			g2.drawString("Increase the size of the playing field by pressing F4 ", pong.Window_width/2 -150, 150);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Increase the size of the playing field by pressing F4 ", pong.Window_width/2 -100, 170);
+			g2.drawString("Decrease the size of the playing field by pressing F5 ", pong.Window_width/2 -150, 170);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Decrease the size of the playing field by pressing F5 ", pong.Window_width/2 -100, 190);
+			g2.drawString("Increase the speed of computer by pressing F6 ", pong.Window_width/2 -150, 190);
+			g2.drawString("Increase the speed of the ball by pressing F7", pong.Window_width/2 -150, 210);
+			g2.drawString("Decrease the speed of the ball by pressing F8", pong.Window_width/2 -150, 230);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Increase the speed of computer by pressing F6 ", pong.Window_width/2 -100, 210);
-			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Go back to the instruction page by pressing Esc ", pong.Window_width/2 -100, 230);
+			g2.drawString("Go back to the instruction page by pressing Esc ", pong.Window_width/2 -150, 250);
 			
 		}
 		
@@ -190,6 +190,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			
 			
 		}
+		if(e.getKeyCode() == KeyEvent.VK_F7){
+		    ball.increaseSpeed();
+		}
+		if(e.getKeyCode() == KeyEvent.VK_F8){
+		    ball.decreaseSpeed();
+		}
+		
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
 			
 			this.gameststus = 0;
