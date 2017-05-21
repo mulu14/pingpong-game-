@@ -186,6 +186,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			
 			
 		}
+		if(e.getKeyCode() == KeyEvent.VK_F7){
+		    ball.increaseSpeed();
+		}
+		if(e.getKeyCode() == KeyEvent.VK_F8){
+		    ball.decreaseSpeed();
+		}
+		
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
 			
 			this.gameststus = 0;
