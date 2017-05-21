@@ -53,16 +53,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			
 			ball.setPlayerScore(0);
 			ball.setComputerScore(0);
-			this.gameststus = 0;
+			this.gameststus = 3;
 			
 		}
           
        else if (ball.returnComputerScore() == 10){
     	    ball.setPlayerScore(0);
 			ball.setComputerScore(0);
-			g2.drawString("Press enter to play again", pong.Window_width/2 -100, 50); 
-			g2.setFont(new Font ("Areal", 1, 10));
-			this.gameststus = 0;
+			this.gameststus = 3;
        }
 		       
 		if(this.gameststus == 0){ 
@@ -106,6 +104,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    ball.paint(g2);
 		}
 		
+		if(this.gameststus ==3){
+			g2.drawString("Press enter to play again", pong.Window_width/2 -100, 50); 
+			g2.setFont(new Font ("Areal", 1, 10));
+			g2.drawString("Press Esc to game instruction ", pong.Window_width/2 -100, 70); 
+			g2.setFont(new Font ("Areal", 1, 10));
+		}
 		
 		
 	
@@ -192,8 +196,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			
 			
 		}
+        if(e.getKeyCode() == KeyEvent.VK_ESCAPE && this.gameststus ==3 ){
+			
+			this.gameststus = 0;
+			
+			
+		}
+        if(e.getKeyCode() == KeyEvent.VK_ENTER && this.gameststus ==3){
+        	this.gameststus = 2;
+        }
 	}
 
+	
+	
 	public void keyReleased(KeyEvent e) {
 		
 		int keyCode = e.getKeyCode() ;
