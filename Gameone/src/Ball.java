@@ -23,88 +23,116 @@ public class Ball {
 		y += yVelocity;  
 		
 		if(x + size < 0){
-			xVelocity +=  2; 
-			this.computerScore = this.computerScore +1;
-			
+
+		    this.computerScore ++;
+		    if (this.returnComputerScore() == 10){
+			JOptionPane.showMessageDialog(null, "Computer wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+			this.computerScore = 0; 
+			this.playerScore = 0;
+		    }
+		    respawnBall();
+		    //xVelocity +=  4;
+		    yVelocity= -yVelocity;
 		}
 		else if(x + size > pong.Window_width){
-			xVelocity -= 2; 
-			this.playerScore  = this.playerScore +1;
-		
+		    
+		    this.playerScore ++;
+		    if (this.returnPlayerScore() == 10){
+			JOptionPane.showMessageDialog(null, "Player 1 wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+			this.computerScore = 0; 
+			this.playerScore = 0;
+		    }
+		    respawnBall();
+		    //xVelocity -= 4;
+		    yVelocity = -yVelocity;
+		    
 		}
 		
-		if(y + size < 0){
-			yVelocity += 2; 
+		if(y - size < 0){
+		    yVelocity += 4; 
 		}
-		else if(y + size> pong.Window_height){
-			yVelocity -= 2; 
-			
+		
+		else if(y + size >= pong.Window_height){
+		    yVelocity -= 4; 	
+		    
 		}
 	} 
+    
+    public void respawnBall(){
+	this.x = pong.Window_width/2;
+	this.y = pong.Window_height/2;
+    }
+    
+    public void paint(Graphics g){
+	g.setColor(Color.gray);
+	g.fillOval(x - this.xVelocity, y - this.yVelocity, size, size);
+	g.setColor(Color.WHITE);
+	g.fillOval(x, y, size, size);
 	
-	public void paint(Graphics g){
-		g.setColor(Color.WHITE);
-		g.fillOval(x, y, size, size);
-		g.dispose();
-	}
+	g.dispose();
+    }
+    
+    public int getBollXvalue(){
+	return x;
+    }
+    
+    public int returnPlayerScore(){
+	return this.playerScore;
+    }
+    
+    public int returnComputerScore(){
+	return this.computerScore;
+    }
+    
+    public int getBollYvalue(){
+	return y; 
+    }
+    
+    public void setPlayerScore(int x){
+	this.playerScore = x;
+    }
+    public void setComputerScore(int x){
+	this.computerScore = x;
+    }
+    
+    
+    public int getbollSize(){
+	return this.size; 
+    }
+    
+    public void reverseDirection(){
 	
-	public int getBollXvalue(){
-		return x;
-	}
-	
-	public int returnPlayerScore(){
-		return this.playerScore;
-	}
-	
-	public int returnComputerScore(){
-		return this.computerScore;
-	}
-	
-	public int getBollYvalue(){
-		return y; 
-	}
-	
-	public void setPlayerScore(int x){
-		this.playerScore = x;
-	}
-	public void setComputerScore(int x){
-		this.computerScore = x;
-	}
-	
-	public int getbollSize(){
-		return this.size; 
-	}
+	xVelocity = -xVelocity; 
+    }
+    
+    public void checkCollision(Player player){
+	if(this.x > player.getX() && this.x < player.getX() + player.getWidth()){
+	    if(this.y >player.getY() && this.y < player.getY() + player.getHeight()){
 
-	public void reverseDirection(){
-		
-		xVelocity = -xVelocity; 
-	}
-	
-	public void checkCollision(Player player){
-		if(this.x > player.getX() && this.x < player.getX() + player.getWidth()){
-			if(this.y >player.getY() && this.y < player.getY() + player.getHeight()){
-		     
-			  reverseDirection(); 
-			  sound.playMusic();
-			}
-		
-		}
-		
-			
-	}
-	
 
-	
-	public void checkCollision(Computer cpu){
-		
-		if(this.x > cpu.getX() && this.x < cpu.getX() + cpu.getWidth()){
-			if(this.y >cpu.getY() && this.y < cpu.getY() + cpu.getHeight()){
-		     
-			  reverseDirection(); 
-			 sound.playMusic();
-			  
-			}
-		}
-		
+		xVelocity = 2;
+		//reverseDirection(); 
+		sound.playMusic();
+	    }
+	    
 	}
+	
+	
+    }
+    
+    
+    
+    public void checkCollision(Computer cpu){
+	
+	if(this.x > cpu.getX() && this.x < cpu.getX() + cpu.getWidth()){
+	    if(this.y >cpu.getY() && this.y < cpu.getY() + cpu.getHeight()){
+
+		xVelocity = -2;
+		//reverseDirection(); 
+		sound.playMusic();
+		
+	    }
+	}
+	
+    }
 }
