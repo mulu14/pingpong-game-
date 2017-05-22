@@ -7,7 +7,7 @@ public class Computer {
     Pong pong; 
     GamePanel field; 
     private int y = pong.Window_height/2; 
-    private int yVelocity = 0; 
+    private int yVelocity = 2; 
     private int width = 10;  
     private int height = 40;
     private int x = 55; 
@@ -69,7 +69,12 @@ public class Computer {
     }
     
     public void increaseComputerSpeed(){
-	this.yVelocity =+1;
+    if(this.yVelocity <=3){
+    	this.yVelocity +=1;
+    	System.out.println("speed");
+    	System.out.println(this.yVelocity);
+    }
+	
     }
     
     

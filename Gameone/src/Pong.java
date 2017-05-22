@@ -12,11 +12,6 @@ public class Pong extends JFrame {
 	private static int instanceCounter = 0;
 	Pong pong;
 	GamePanel p;
-	Sound sound;
-	Ball ball; 
-	Player player = new Player(); 
-	Computer computer; 
-	
     static int Window_width = 407; 
     static int Window_height  = 283;
 	     
@@ -39,22 +34,12 @@ public class Pong extends JFrame {
 		frame.add(p);
 		frame.setVisible(true);
 		frame.setResizable(false);
+	
 		this.instanceCounter++;
 		
 		
 	}
 	
-
-
-	
-	
-	
-	public static void main(String [] args){
-		
-		Pong pong = new Pong(); 
-		
-		
-	}
 	
 	public void setTonull(int instance){
 		for(int i =1; i < instance; ++i){
@@ -78,14 +63,14 @@ public class Pong extends JFrame {
 		Pong.Window_width = Pong.Window_width  -20;
 	}
 	
-
 	
 
-
-
-
-
-
+	public static void main(String [] args){
+		
+		Pong pong = new Pong(); 
+		
+		
+	}
 
 
 }

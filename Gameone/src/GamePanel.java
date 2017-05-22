@@ -7,9 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -18,7 +15,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
 	Pong pong;
-	private int score = 0; 
 	Ball ball = new Ball(); 
 	Player player = new Player();
 	Computer cpu = new Computer(this);
@@ -94,6 +90,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.setColor(Color.white);
 			g2.setFont(new Font ("Areal", 1, 10));
 			g2.drawString("Pause", pong.Window_width/2 -30, 80); 
+			 
 		}
 		if(this.gameststus == 2){
 			g2.drawString(ball.returnPlayerScore() + " : " + ball.returnComputerScore() , pong.Window_width / 2  -15, 10);
@@ -112,15 +109,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		
 		
-	
 		
 	}
 
 	public void actionPerformed(ActionEvent e) {
 			if(this.gameststus == 2){
 				update();
+				
 			}
-			this.repaint();
+	   this.repaint();		
 	}
 	
 	
