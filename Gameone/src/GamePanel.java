@@ -96,6 +96,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.drawString(ball.returnPlayerScore() + " : " + ball.returnComputerScore() , pong.Window_width / 2  -15, 10);
 			g2.drawLine(0, 30, pong.Window_width, 30);
 			g2.drawLine(pong.Window_width/2, 30, pong.Window_width/2, pong.Window_height);
+			g2.drawOval(pong.Window_width/2, pong.Window_width/2, 30, 30);
 			cpu.paint(g2);
 			player.paint(g2);
 		    ball.paint(g2);
