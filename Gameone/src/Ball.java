@@ -39,11 +39,11 @@ public class Ball {
 	    if(x + size < 0){
 
 		this.computerScore ++;
-		if (this.returnComputerScore() == 10){
-		    JOptionPane.showMessageDialog(null, "Computer wins", "Pong", JOptionPane.PLAIN_MESSAGE);
-		    this.computerScore = 0; 
-		    this.playerScore = 0;
-		}
+		//if (this.returnComputerScore() == 10){
+		//JOptionPane.showMessageDialog(null, "Computer wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+		//  this.computerScore = 0; 
+		//  this.playerScore = 0;
+		//}
 		respawnBall();
 		//xVelocity +=  4;
 		yVelocity= -yVelocity;
@@ -51,11 +51,11 @@ public class Ball {
 	    else if(x + size > pong.Window_width){
 		
 		this.playerScore ++;
-		if (this.returnPlayerScore() == 10){
-		    JOptionPane.showMessageDialog(null, "Player 1 wins", "Pong", JOptionPane.PLAIN_MESSAGE);
-		    this.computerScore = 0; 
-		    this.playerScore = 0;
-		}
+		//if (this.returnPlayerScore() == 10){
+		//  JOptionPane.showMessageDialog(null, "Player 1 wins", "Pong", JOptionPane.PLAIN_MESSAGE);
+		//  this.computerScore = 0; 
+		//  this.playerScore = 0;
+		//}
 		respawnBall();
 		//xVelocity -= 4;
 		yVelocity = -yVelocity;
