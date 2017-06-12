@@ -16,16 +16,16 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
-	private static final long serialVersionUID = 1L;
-	Pong pong;
-	private int score = 0; 
-	Ball ball = new Ball(); 
-	Player player = new Player();
-	Computer cpu = new Computer(this);
-	private Timer timer; 
-	private int delay = 30; 
-	private int gameststus = 0;
-    
+    private static final long serialVersionUID = 1L;
+    Pong pong;
+    private int score = 0; 
+    Ball ball = new Ball(); 
+    Player player = new Player();
+    Computer cpu = new Computer(this);
+    private Timer timer; 
+    private int delay = 30; 
+    private int gameststus = 0;
+    private String currentLanguage = "English";
 	
 	public GamePanel(){
 		timer = new Timer(delay, this); 
@@ -67,7 +67,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			this.gameststus = 3;
        }
 		       
-		if(this.gameststus == 0){ 
+		if(this.gameststus == 0){
+
+		    if (currentLanguage == "English") {
 			g2.setColor(Color.white);
 			g2.setFont(new Font ("Areal", 1, 20));
 			g2.drawString("Pong: game instruction", pong.Window_width/2 -150, 30); 
@@ -84,7 +86,25 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.drawString("Increase the speed of the ball by pressing F7", pong.Window_width/2 -150, 210);
 			g2.drawString("Decrease the speed of the ball by pressing F8", pong.Window_width/2 -150, 230);
 			g2.drawString("Go back to the instruction page by pressing Esc ", pong.Window_width/2 -150, 250);
-			
+		    }
+		    else if (currentLanguage == "Swedish") {
+			g2.setColor(Color.white);
+			g2.setFont(new Font ("Areal", 1, 20));
+			g2.drawString("Pong: Spelinstruktioner", pong.Window_width/2 -150, 30); 
+			g2.setFont(new Font ("Areal", 1, 10));
+			g2.drawString("Tryck på blanksteg för att spela", pong.Window_width/2 -150, 50);
+			g2.drawString("Flytta upp och ner genom att använda pil upp och pil ner", pong.Window_width/2 -150, 70);
+			g2.drawString("Spelet kan pausas och återupptas genom blanksteg", pong.Window_width/2 -150, 90); 
+			g2.drawString("En match går till 10 poäng, först till 10 vinner", pong.Window_width/2 -150, 110);
+			g2.drawString("Öka storleken på spelarpanelen genom att trycka på F1", pong.Window_width/2 -150, 130);
+			g2.drawString("Minska storleken på spelarpanelen genom att trycka på F2", pong.Window_width/2 -150, 150);
+			g2.drawString("Öka storleken på fönstret genom att trycka på F4", pong.Window_width/2 -150, 170);
+			g2.drawString("Minska storleken på fönstret genom att trycka på F5", pong.Window_width/2 -150, 190);
+			//g2.drawString("Increase the speed of computer by pressing F6 ", pong.Window_width/2 -150, 190);
+			g2.drawString("Öka hastigheten på bollen genom att trycka på F7", pong.Window_width/2 -150, 210);
+			g2.drawString("Minska hastigheten på bollen genom att trycka på F8", pong.Window_width/2 -150, 230);
+			g2.drawString("Gå tillbaka till instruktionssidan genom att trycka på Esc", pong.Window_width/2 -150, 250);
+		    }
 		}
 		
 		if(this.gameststus ==1){
@@ -104,9 +124,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 
 		if(this.gameststus == 3) {
-		    g2.drawString("Press enter to play again", pong.Window_width/2 -100, 50);
-		    g2.setFont(new Font ("Areal", 1, 10));
-		    g2.drawString("Press Esc to go to game instructions", pong.Window_width/2 -100, 70);
+		    if (currentLanguage == "English"){
+			g2.drawString("Press space to play again", pong.Window_width/2 -100, 50);
+			g2.setFont(new Font ("Areal", 1, 10));
+			g2.drawString("Press Esc to go to game instructions", pong.Window_width/2 -100, 70);
+		    }
+		    else if (currentLanguage == "Swedish") {
+			g2.drawString("Tryck på blanksteg för att spela igen", pong.Window_width/2 -100, 50);
+			g2.setFont(new Font ("Areal", 1, 10));
+			g2.drawString("Tryck på Esc för att gå tillbaka till instruktionerna", pong.Window_width/2 -100, 70);
+		    }
 		}
 		
 		
@@ -155,7 +182,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				
 			}
 			else if(this.gameststus == 3){
-				this.gameststus = 0; 
+				this.gameststus = 2; 
 			}
 		}
 		if(e.getKeyCode() == KeyEvent.VK_F1){
@@ -193,6 +220,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		if(e.getKeyCode() == KeyEvent.VK_F8){
 		    ball.decreaseSpeed();
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_F9){
+		    if (currentLanguage == "English"){
+			currentLanguage = "Swedish";
+		    }
+		    else if (currentLanguage == "Swedish"){
+			currentLanguage = "English";
+		    }
 		}
 		
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
