@@ -17,8 +17,8 @@ public class Pong extends JFrame {
 	Player player = new Player(); 
 	Computer computer; 
 	
-    static int Window_width = 407; 
-    static int Window_height  = 283;
+    static int Window_width = 447; 
+    static int Window_height  = 323;
 	     
 	
 	   

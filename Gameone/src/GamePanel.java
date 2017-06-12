@@ -86,6 +86,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.drawString("Increase the speed of the ball by pressing F7", pong.Window_width/2 -150, 210);
 			g2.drawString("Decrease the speed of the ball by pressing F8", pong.Window_width/2 -150, 230);
 			g2.drawString("Go back to the instruction page by pressing Esc ", pong.Window_width/2 -150, 250);
+			g2.drawString("Change the language to swedish by pressing F9", pong.Window_width/2 -150, 270);
 		    }
 		    else if (currentLanguage == "Swedish") {
 			g2.setColor(Color.white);
@@ -104,13 +105,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.drawString("Öka hastigheten på bollen genom att trycka på F7", pong.Window_width/2 -150, 210);
 			g2.drawString("Minska hastigheten på bollen genom att trycka på F8", pong.Window_width/2 -150, 230);
 			g2.drawString("Gå tillbaka till instruktionssidan genom att trycka på Esc", pong.Window_width/2 -150, 250);
+			g2.drawString("Byt språk till engelska genom att trycka på F9", pong.Window_width/2 -150, 270);
+
 		    }
 		}
 		
 		if(this.gameststus ==1){
 			g2.setColor(Color.white);
 			g2.setFont(new Font ("Areal", 1, 10));
-			g2.drawString("Pause", pong.Window_width/2 -30, 80); 
+			if (currentLanguage == "English"){
+			    g2.drawString("Pause", pong.Window_width/2 -30, 80);
+			}
+			else if (currentLanguage == "Swedish"){
+			    g2.drawString("Paus", pong.Window_width/2 -30, 80);
+			}
 		}
 		if(this.gameststus == 2){
 			g2.drawString(ball.returnPlayerScore() + " : " + ball.returnComputerScore() , pong.Window_width / 2  -15, 10);
