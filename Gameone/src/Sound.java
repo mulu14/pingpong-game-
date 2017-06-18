@@ -16,7 +16,7 @@ public class Sound {
 	}
 	
 	public void playMusic() {
-		 File file = new File("ping.wav");
+		 File file = new File("../ping.wav");
 		    if(file.exists()) {
 		        try {
 		            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);

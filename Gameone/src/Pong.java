@@ -12,8 +12,15 @@ public class Pong extends JFrame {
 	private static int instanceCounter = 0;
 	Pong pong;
 	GamePanel p;
-    static int Window_width = 407; 
-    static int Window_height  = 283;
+
+
+	Sound sound;
+	Ball ball; 
+	Player player = new Player(); 
+	Computer computer; 
+    static int Window_width = 447; 
+    static int Window_height  = 323;
+
 	     
 	
 	   
