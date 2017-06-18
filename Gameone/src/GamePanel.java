@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Computer cpu = new Computer(this);
 	private Timer timer; 
 	private int delay = 30; 
-	private int gameststus = 0; 
+	private int gameststus = 4; 
 	
 	public GamePanel(){
 		timer = new Timer(delay, this); 
@@ -96,7 +96,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.drawString(ball.returnPlayerScore() + " : " + ball.returnComputerScore() , pong.Window_width / 2  -15, 10);
 			g2.drawLine(0, 30, pong.Window_width, 30);
 			g2.drawLine(pong.Window_width/2, 30, pong.Window_width/2, pong.Window_height);
-			g2.drawOval(pong.Window_width/2, pong.Window_width/2, 30, 30);
+			g2.drawOval(pong.Window_width/2-20, pong.Window_width/2-75, 40, 40);
 			cpu.paint(g2);
 			player.paint(g2);
 		    ball.paint(g2);
@@ -108,7 +108,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g2.drawString("Press Esc to game instruction ", pong.Window_width/2 -100, 70); 
 			g2.setFont(new Font ("Areal", 1, 10));
 		}
-		
+		if(this.gameststus ==4){
+			g2.setFont(new Font ("Areal", 1, 20));
+			g2.drawString("Svenska: tryck F9", pong.Window_width/2 -150, 80); 
+			g2.setFont(new Font ("Areal", 1, 20));
+			g2.drawString("English: Press F10", pong.Window_width/2 -150, 120); 
+			
+		}
 		
 		
 	}
@@ -165,14 +171,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if(e.getKeyCode() == KeyEvent.VK_F2){
 			player.decreasePlayerheight();
 		}
+
+		if(e.getKeyCode() == KeyEvent.VK_F9){
+			
+			this.gameststus = 0;
+			
+		}
 	
 		
 		if(e.getKeyCode() == KeyEvent.VK_F4){
 			Pong pong = new Pong();
 			pong.increaseJframesize(); 
 			
-			
-		
 			
 		}
 		if(e.getKeyCode() == KeyEvent.VK_F5){
